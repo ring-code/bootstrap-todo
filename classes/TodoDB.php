@@ -1,6 +1,7 @@
 <?php
 
-require_once(__DIR__ . '/../config.php'); 
+require_once(__DIR__ . '/../config.php');
+require_once("./log.php"); 
 
 /**
  * todo db object
@@ -54,13 +55,14 @@ $todoDB = new TodoDB();
             return $stmt;
         } catch(Exception $e) {
             error_log($e->getMessage());
+            write_log("SQL Error",$e->getMessage());
             return $e->getMessage();
         }
     }
 
     public function getTodos() {
 
-        $sql = "SELECT id, text, completed from todos";
+        $sql = "SELECT idAAA, text, completed from todos";
 
         $todo_items = $this->prepareExecuteStatement($sql)->fetchAll();
     
@@ -75,7 +77,7 @@ $todoDB = new TodoDB();
      */
     public function createTodo($text) {
 
-        $sql = "INSERT INTO todos (text, completed) VALUES (:text, :completed)";
+        $sql = "INSERT INTO todos15 (text, completed) VALUES (:text, :completed)";
        
         $result = $this->prepareExecuteStatement($sql, ['text' => $text, 'completed' => 0]);
             

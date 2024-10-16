@@ -31,7 +31,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         } else {
             // error occurred
             echo json_encode(['status' => 'failure']);
-            write_log("POST FAILED", $data, $result); // write error message from the database into the log
+            write_log("POST FAILED", $data);
         }
         break;
     case "PUT":
@@ -45,7 +45,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 
         $result = $todoDB->updateTodo($data['id']);
 
-        // Tell the client the success of the operation.
+        
         if ($result instanceof PDOStatement) {
             // statement executed successfully
             echo json_encode(['status' => 'success']);
@@ -53,7 +53,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         } else {
             // error occurred
             echo json_encode(['status' => 'failure']);
-            write_log("PUT FAILED", $data, $result);
+            write_log("PUT FAILED", $data);
         }
         break;
     case "DELETE":
@@ -71,7 +71,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         } else {
             // error occurred
             echo json_encode(['status' => 'failure']);
-            write_log("DELETE FAILED", $data, $result);
+            write_log("DELETE FAILED", $data);
         }
         break;
 }
