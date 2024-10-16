@@ -62,7 +62,7 @@ $todoDB = new TodoDB();
 
     public function getTodos() {
 
-        $sql = "SELECT idAAA, text, completed from todos";
+        $sql = "SELECT id, text, completed from todos";
 
         $todo_items = $this->prepareExecuteStatement($sql)->fetchAll();
     
@@ -77,7 +77,7 @@ $todoDB = new TodoDB();
      */
     public function createTodo($text) {
 
-        $sql = "INSERT INTO todos15 (text, completed) VALUES (:text, :completed)";
+        $sql = "INSERT INTO todos (text, completed) VALUES (:text, :completed)";
        
         $result = $this->prepareExecuteStatement($sql, ['text' => $text, 'completed' => 0]);
             

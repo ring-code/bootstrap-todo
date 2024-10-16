@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
-   
+<?php
+    require_once(__DIR__ . '/classes/Template.php');
+    require_once('linkDir.php');
+?>   
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Todo-List</title>
+        <title>Bootstrap-Beispiele</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -19,16 +22,16 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <?php
-                require_once(__DIR__ . '/classes/Template.php');
+                
                 $template = new Template(__DIR__ . '/templates', []);
-                echo $template->render('nav-side.php', ['pageTitle' => 'Todo']);
+                echo $template->render('nav-side.php', ['pageTitle' => 'Bootstrap-Beispiele']);
             ?>
             
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
                 <?php
-                    require_once(__DIR__ . '/classes/Template.php');
+                    
                     $template = new Template(__DIR__ . '/templates', []);
                     echo $template->render('nav-top.php');
                 ?>
@@ -39,21 +42,14 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-8">
-                        <h1>Meine Todo-Liste</h1>
-                        <form id="todo-form">
-                            <div class="form-group">
-                                
-                                <div class="input-group">
-                                    <input type="text" id="todo-input" class="form-control" placeholder="Neue Aufgabe eingeben" aria-label="Neue Aufgabe" required>
-                                    <button type="submit" class="btn btn-primary">Hinzufügen</button>
-                                </div>
-                            </div>
-                        </form>
-                
-                        <br>
-                        <ul id="todo-list">
-                        <!-- Unordered list to dynamically add todo list items. -->
-                        </ul>
+                    <h2>Bootstrap-Beispiele</h2>
+                        
+                    <?php 
+                        
+                        echo linkDir("./bootstrap-examples/"); 
+
+                    ?>
+                        
                     </div>
                 </div>
             </div>
