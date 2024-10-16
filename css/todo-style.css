@@ -15,5 +15,11 @@ li.todo-item {
     color: red;
 }
 
+.sticky-left {
+            position: sticky;
+            top: 0; /* Adjust this value based on your layout */
+            height: 100vh; /* Full height for sticky effect */
+            
+}
 
 
